@@ -1,0 +1,12 @@
+default: &default
+  host: <%= ENV['MOVIE_GRAPH_NEO4J_HOST'] %>
+  port: <%= ENV['MOVIE_GRAPH_NEO4J_PORT'] %>
+  username: <%= ENV['MOVIE_GRAPH_NEO4J_USERNAME'] %>
+  password: <%= ENV['MOVIE_GRAPH_NEO4J_PASSWORD'] %>
+
+production:
+  <<: *default
+development:
+  <<: *default
+test:
+  <<: *default
