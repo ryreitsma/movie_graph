@@ -19,4 +19,11 @@ MOVIE_GRAPH_IMDB_USERNAME=ryreitsma
 MOVIE_GRAPH_IMDB_USER_UID=ur8282058
 ```
 
-Now you are ready to import the ratings and movies into the graph database. 
+Now you are ready to import the ratings and movies into the graph database. This can be done by running two rake tasks:
+
+```
+rake importer:import_movies
+rake importer:import_ratings
+```
+
+Note: the first rake task may take a long time depending on how many movies you have rated.
