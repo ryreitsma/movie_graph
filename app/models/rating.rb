@@ -1,9 +1,10 @@
 class Rating
   include Neo4j::ActiveRel
 
-  from Reviewer
-  to Movie
+  from_class Reviewer
+  to_class Movie
   type :rated
+  creates_unique_rel
 
-  property :score, index: :exact, type: Integer
+  property :score, type: Integer
 end
