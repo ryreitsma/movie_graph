@@ -1,0 +1,10 @@
+default: &default
+  user_name: <%= ENV['MOVIE_GRAPH_IMDB_USERNAME'] %>
+  user_uid: <%= ENV['MOVIE_GRAPH_IMDB_USER_UID'] %>
+
+production:
+  <<: *default
+development:
+  <<: *default
+test:
+  <<: *default
