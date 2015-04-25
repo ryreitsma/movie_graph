@@ -10,11 +10,7 @@ module Imdb
     )
 
     def path
-      "/#{config['user_uid']}/ratings"
-    end
-
-    def config
-      Rails.application.config_for(:imdb)
+      "/#{Config['user_uid']}/ratings"
     end
 
     def perform
