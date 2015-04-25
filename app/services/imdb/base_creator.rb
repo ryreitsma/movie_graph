@@ -9,7 +9,7 @@ module Imdb
     end
 
     def extract_movie_title(movie_xml_element)
-      movie_xml_element.xpath('title')[0].inner_text.gsub(/.\(\d{4}\)/, '')
+      movie_xml_element.xpath('title')[0].inner_text.gsub(/.\(\d{4}.*\)/, '')
     end
   end
 end
