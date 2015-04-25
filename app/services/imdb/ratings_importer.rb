@@ -1,5 +1,5 @@
 module Imdb
-  class RatingsFetcher
+  class RatingsImporter
     def perform
       rss_xml = RssService.new.perform
 
