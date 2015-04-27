@@ -10,5 +10,9 @@ module Omdb
     def perform
       self.class.get('', @query_params)
     end
+
+    def self.get_movie_by_title(movie_title)
+      new(query_params: {t: movie_title}).perform
+    end
   end
 end

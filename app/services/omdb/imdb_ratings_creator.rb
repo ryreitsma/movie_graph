@@ -3,7 +3,7 @@ module Omdb
     def perform
       imdb_reviewer = Reviewer.find_or_create_by(name: "imdb")
       Movie.all.each do |movie|
-        movie_json = ApiService.new(query_params: {t: movie.title}).perform
+        movie_json = ApiService.get_movie_by_title(movie.title)
         next unless movie_json['imdbRating']
 
         score = movie_json['imdbRating'].to_d.round

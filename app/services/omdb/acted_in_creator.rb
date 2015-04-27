@@ -2,7 +2,7 @@ module Omdb
   class ActedInCreator
     def perform
       Movie.all.each do |movie|
-        movie_json = ApiService.new(query_params: {t: movie.title}).perform
+        movie_json = ApiService.get_movie_by_title(movie.title)
         next unless movie_json['Actors']
 
         actor_names = movie_json['Actors'].split(',')
