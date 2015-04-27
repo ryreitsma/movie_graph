@@ -3,7 +3,7 @@ class Rating
 
   from_class Reviewer
   to_class Movie
-  type :rated
+  type 'RATED'
   creates_unique_rel
 
   property :score, type: Integer
