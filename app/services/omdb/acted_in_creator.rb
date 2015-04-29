@@ -2,6 +2,8 @@ module Omdb
   class ActedInCreator
     def perform
       Movie.all.each do |movie|
+        next if movie.actors.length > 0
+
         movie_json = ApiService.get_movie_by_title(movie.title)
         #NOTE: cartoon movies do not have actors
         next unless movie_json['Actors']

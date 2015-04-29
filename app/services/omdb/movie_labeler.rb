@@ -2,6 +2,8 @@ module Omdb
   class MovieLabeler
     def perform
       Movie.all.each do |movie|
+        next if movie.year
+
         movie_json = ApiService.get_movie_by_title(movie.title)
         movie.year = movie_json['Year']
         movie.poster = movie_json['Poster']
