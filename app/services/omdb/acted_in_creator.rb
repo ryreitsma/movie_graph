@@ -3,6 +3,7 @@ module Omdb
     def perform
       Movie.all.each do |movie|
         movie_json = ApiService.get_movie_by_title(movie.title)
+        #NOTE: cartoon movies do not have actors
         next unless movie_json['Actors']
 
         actor_names = movie_json['Actors'].split(',')
