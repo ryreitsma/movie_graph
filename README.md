@@ -11,19 +11,12 @@ MOVIE_GRAPH_NEO4J_PORT=7474
 MOVIE_GRAPH_NEO4J_USERNAME=neo4j
 MOVIE_GRAPH_NEO4J_PASSWORD=neo4j
 ```
+## Importing movies and ratings: from IMDb RSS ratings feed
+Find your own IMDB username and uid by visiting your IMDb ratings page. The url will look like *http://www.imdb.com/user/{{user_uid}}/ratings?ref_=nv_usr_rt_4* You will have to make them publicly available to run the importers.
 
-Enter your own IMDB username and uid in the `env.development` file. You can find the uid by visiting the IMDB ratings page. The url will look like *http://www.imdb.com/user/{{user_uid}}/ratings?ref_=nv_usr_rt_4* 
-
+Run these two rake tasks. Fill the username and user_uid in brackets and make sure there are no spaces. 
 ```
-MOVIE_GRAPH_IMDB_USERNAME=ryreitsma
-MOVIE_GRAPH_IMDB_USER_UID=ur8282058
+rake importer:import_movies[username,user_uid]
+rake importer:import_ratings[username,user_uid]
 ```
-
-Now you are ready to import the ratings and movies into the graph database. This can be done by running two rake tasks:
-
-```
-rake importer:import_movies
-rake importer:import_ratings
-```
-
-Note: the first rake task may take a long time depending on how many movies you have rated.
+If you have spaces in your username, put the whole rake command between double quotes (for example: `rake "importer:import_movies[ryreitsma, ur8282058]"`) The first rake task may take a long time depending on how many movies you have rated.
