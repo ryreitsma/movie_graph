@@ -9,12 +9,8 @@ module Imdb
       end
     )
 
-    def path
-      "/#{Config['user_uid']}/ratings"
-    end
-
-    def perform
-      self.class.get(path)
+    def self.perform(user_uid)
+      get("/#{user_uid}/ratings")
     end
   end
 end
