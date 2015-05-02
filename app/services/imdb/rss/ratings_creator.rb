@@ -1,11 +1,6 @@
 module Imdb
   module Rss
     class RatingsCreator < BaseCreator
-      def initialize(rss_xml:, user_name:)
-        super(rss_xml: rss_xml)
-        @user_name = user_name
-      end
-
       def perform
         reviewer = Reviewer.find_or_create_by(name: @user_name)
 

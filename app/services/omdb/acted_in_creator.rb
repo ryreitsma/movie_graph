@@ -1,13 +1,13 @@
 module Omdb
   class ActedInCreator
-    def perform
+    def self.perform
       Movie.all.each do |movie|
         import_actors(movie)
       end
     end
 
     private
-    def import_actors(movie)
+    def self.import_actors(movie)
       return if movie.actors.length > 0
 
       begin

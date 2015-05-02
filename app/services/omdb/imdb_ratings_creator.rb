@@ -1,6 +1,6 @@
 module Omdb
   class ImdbRatingsCreator
-    def perform
+    def self.perform
       imdb_reviewer = Reviewer.find_or_create_by(name: "imdb")
       Movie.all.each do |movie|
         import_rating(movie, imdb_reviewer)
@@ -8,7 +8,7 @@ module Omdb
     end
 
     private
-    def import_rating(movie, reviewer)
+    def self.import_rating(movie, reviewer)
       return if reviewer.rated.first_rel_to(movie)
 
       begin

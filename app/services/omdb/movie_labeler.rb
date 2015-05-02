@@ -1,13 +1,13 @@
 module Omdb
   class MovieLabeler
-    def perform
+    def self.perform
       Movie.all.each do |movie|
         add_labels_to_movie(movie)
       end
     end
 
     private
-    def add_labels_to_movie(movie)
+    def self.add_labels_to_movie(movie)
       return if movie.year
 
       begin
