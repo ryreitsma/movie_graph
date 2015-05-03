@@ -13,7 +13,7 @@ module Omdb
 
       begin
         movie_json = ApiService.get_movie_by_title(movie.title)
-        score = movie_json['imdbRating'].to_d.round
+        score = movie_json['imdbRating'].to_f
 
         Rating.create(from_node: reviewer, to_node: movie, score: score)
       rescue ApiService::MovieNotFound => e

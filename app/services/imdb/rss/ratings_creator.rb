@@ -13,7 +13,7 @@ module Imdb
       end
 
       def extract_score(movie_xml_element)
-        movie_xml_element.xpath('description')[0].inner_text.match(/\d/)[0].to_i
+        movie_xml_element.xpath('description')[0].inner_text.match(/\d/)[0].to_f
       end
     end
   end

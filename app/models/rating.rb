@@ -6,5 +6,5 @@ class Rating
   type 'RATED'
   creates_unique_rel
 
-  property :score, type: Integer
+  property :score, type: Float
 end
