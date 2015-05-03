@@ -1,7 +1,7 @@
 module Omdb
   class ActedInCreator
     def self.perform
-      Movie.all.each do |movie|
+      Movie.find_each(batch_size: 500) do |movie|
         import_actors(movie)
       end
     end

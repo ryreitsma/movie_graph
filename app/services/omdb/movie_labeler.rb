@@ -1,7 +1,7 @@
 module Omdb
   class MovieLabeler
     def self.perform
-      Movie.all.each do |movie|
+      Movie.find_each(batch_size: 500) do |movie|
         add_labels_to_movie(movie)
       end
     end

@@ -2,7 +2,7 @@ module Omdb
   class ImdbRatingsCreator
     def self.perform
       imdb_reviewer = Reviewer.find_or_create_by(name: "imdb")
-      Movie.all.each do |movie|
+      Movie.find_each(batch_size: 500) do |movie|
         import_rating(movie, imdb_reviewer)
       end
     end
