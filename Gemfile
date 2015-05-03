@@ -32,7 +32,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'neo4j'
+gem 'neo4j-core', git: 'git@github.com:neo4jrb/neo4j-core.git'
+gem 'neo4j', git: 'git@github.com:neo4jrb/neo4j.git'
 gem 'dotenv-rails'
 gem 'httparty'
 gem 'nokogiri'

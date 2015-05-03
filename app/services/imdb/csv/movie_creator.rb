@@ -7,7 +7,7 @@ module Imdb
 
       def perform
         CSV.foreach(@file_path, headers: true) do |row|
-          Movie.find_or_create_by(title: row['Title'])
+          Movie.merge(title: row['Title'])
         end
       end
     end

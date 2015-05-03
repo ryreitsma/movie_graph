@@ -17,7 +17,7 @@ module Omdb
 
         actor_names = movie_json['Actors'].split(',')
         actor_names.each do |actor_name|
-          actor = Actor.find_or_create_by(name: actor_name.strip)
+          actor = Actor.merge(name: actor_name.strip)
           actor.acted_in << movie
         end
       rescue ApiService::MovieNotFound => e
