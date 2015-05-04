@@ -14,9 +14,17 @@ MOVIE_GRAPH_NEO4J_PASSWORD=neo4j
 ## Importing movies and ratings: from IMDb RSS ratings feed
 Find your own IMDB username and uid by visiting your IMDb ratings page. The url will look like *http://www.imdb.com/user/{{user_uid}}/ratings?ref_=nv_usr_rt_4* You will have to make them publicly available to run the importers.
 
-Run these two rake tasks. Fill the username and user_uid in brackets and make sure there are no spaces. 
+Run the rake task. Fill the username and user_uid in brackets and make sure there are no spaces. 
 ```
-rake importer:import_movies[username,user_uid]
-rake importer:import_ratings[username,user_uid]
+rake importer:from_rss[username,user_uid]
 ```
-If you have spaces in your username, put the whole rake command between double quotes (for example: `rake "importer:import_movies[ryreitsma, ur8282058]"`) The first rake task may take a long time depending on how many movies you have rated.
+If you have spaces in your username, put the whole rake command between double quotes (for example: `rake "importer:from_rss[ryreitsma, ur8282058]"`) The rake task may take a long time depending on how many movies you have rated.
+
+## Importing movies and ratings: from IMDb ratings csv file
+Visit the IMDb ratings page. Scroll down to end of the list, in the right bottom corner you will find a link 'Export this list'. Download the resulting CSV file and put it into the csv directory in the root of this application.
+
+Run the rake task. Fill the username and filename in brackets and make sure there are no spaces. 
+```
+rake importer:from_csv[username,filename]
+```
+If you have spaces in your username or in the filename, put the whole rake command between double quotes (for example: `rake "importer:from_rss[ryreitsma,ryreitsma ratings.csv]"`) The rake task may take a long time depending on how many movies you have rated.
